@@ -12,6 +12,8 @@ import pymongo
 from Threat_Lens.Exception.Exception import TLException
 from Threat_Lens.Logger.Logger import logging
 
+MONGODB_URL = os.getenv("MONGODB_URL")
+CA = certifi.where()
 
 class DataExtract():
   def __init__(self):
