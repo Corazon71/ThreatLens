@@ -40,18 +40,24 @@ class TLTrainingPipeline():
     except Exception as e:
       raise TLException(e, sys)
   
-  def Start_Data_Transform(self):
-    try:
-      pass
-    except Exception as e:
-      raise TLException(e, sys)
-  
   def Start_Data_Valid(self):
     try:
       pass
     except Exception as e:
       raise TLException(e, sys)
   
+  def Start_Data_Transform(self):
+    try:
+      pass
+    except Exception as e:
+      raise TLException(e, sys)
+  
+  def Start_Model_Train(self):
+    try:
+      pass
+    except Exception as e:
+      raise TLException(e, sys)
+ 
   def Start_Model_Eval(self):
     try:
       pass
@@ -63,13 +69,7 @@ class TLTrainingPipeline():
       pass
     except Exception as e:
       raise TLException(e, sys)
-  
-  def Start_Model_Train(self):
-    try:
-      pass
-    except Exception as e:
-      raise TLException(e, sys)
-  
+   
   def Run_Pipeline(self):
     try:
       pass

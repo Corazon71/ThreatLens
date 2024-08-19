@@ -2,12 +2,12 @@ import os
 import sys
 import json
 
-from dotenv import load_dotenv
-
 import certifi
 import pandas as pd
 import numpy as np
 import pymongo
+
+from dotenv import load_dotenv
 
 from Threat_Lens.Exception.Exception import TLException
 from Threat_Lens.Logger.Logger import logging
