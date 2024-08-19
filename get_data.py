@@ -15,25 +15,42 @@ from Threat_Lens.Logger.Logger import logging
 MONGODB_URL = os.getenv("MONGODB_URL")
 CA = certifi.where()
 
-class DataExtract():
+class DataIngest():
   def __init__(self):
     try:
       pass
     except Exception as e:
       raise TLException(e, sys)
     
-  def csv2json_converter(self):
+  def csv2json_converter(self, path):
     try:
-      pass
+      Data = pd.read_csv(path)
+      Data.reset_index(drop = True, inplace = True)
+      Records = list(json.loads(Data.T.to_json()).values())
+      return Records
     except Exception as e:
       raise TLException(e, sys)
     
-  def pushing_Data2MongoDB():
+  def pushing_Data2MongoDB(self, recs, db, cllctn):
     try:
-      pass
+      self.database = db
+      self.collection = cllctn
+      self.records = recs
+
+      self.mongo_client = pymongo.MongoClient(MONGODB_URL)
+      self.database = self.mongo_client[self.database]
+      self.collection = self.database[self.collection]
+      self.collection.insert_many(self.records)
+      return len(self.records)
     except Exception as e:
       raise TLException(e, sys)
     
-  if __name__ == "__main__":
-    pass
+if __name__ == "__main__":
+  DataPath = "./Data/Data.csv"
+  Database = "PunkRecords"
+  Collection = "TLData"
+  Ingst = DataIngest()
+  Records = Ingst.csv2json_converter(DataPath)
+  NumRecords = Ingst.pushing_Data2MongoDB(Records, Database, Collection)
+  print(NumRecords)
     
