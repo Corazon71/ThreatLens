@@ -15,7 +15,7 @@ from Threat_Lens.Logger.Logger import logging
 MONGODB_URL = os.getenv("MONGODB_URL")
 CA = certifi.where()
 
-class DataIngest():
+class DataUpload():
   def __init__(self):
     try:
       pass
@@ -49,8 +49,7 @@ if __name__ == "__main__":
   DataPath = "./Data/Data.csv"
   Database = "PunkRecords"
   Collection = "TLData"
-  Ingst = DataIngest()
+  Ingst = DataUpload()
   Records = Ingst.csv2json_converter(DataPath)
   NumRecords = Ingst.pushing_Data2MongoDB(Records, Database, Collection)
   print(NumRecords)
-    
