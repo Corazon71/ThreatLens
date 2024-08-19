@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: ThreatLens
+Version: 1
+Author: Corazon
+Author-email: gurunaths6102003@gmail.com
+License-File: LICENSE
+Requires-Dist: python-dotenv
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: pymongo
+Requires-Dist: certifi
