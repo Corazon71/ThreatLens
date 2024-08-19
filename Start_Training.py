@@ -7,7 +7,8 @@ from Threat_Lens.Pipeline.Training_Pipeline import TLTrainingPipeline
 
 def start_training():
   try:
-    pass
+    TLTP = TLTrainingPipeline()
+    TLTP.Run_Pipeline()
   except Exception as e:
     raise TLException(e, sys)
   
