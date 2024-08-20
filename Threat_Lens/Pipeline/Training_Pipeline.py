@@ -32,11 +32,17 @@ from Threat_Lens.Entity.Artifact_Entity import (
 
 class TLTrainingPipeline():
   def __init__(self):
-    pass
+    self.TPConfig = TLTrainingPipelineConfig()
 
   def Start_Data_Ingest(self):
     try:
-      pass
+      self.DIConfig = TLDataIngestConfig(TPConfig = self.TPConfig)
+      logging.info("Initiating Data Ingestion")
+      DI = TLDataIngest(DIConfig = self.DIConfig)
+      DI_Artifact = DI.initiate_DataIngestion()
+      logging.info(f"Data Ingestion Completed Successfully - {DI_Artifact}")
+
+      return DI_Artifact
     except Exception as e:
       raise TLException(e, sys)
   
@@ -72,6 +78,7 @@ class TLTrainingPipeline():
    
   def Run_Pipeline(self):
     try:
-      pass
+      DI_Artifact = self.Start_Data_Ingest()
+      print(DI_Artifact)
     except Exception as e:
       raise TLException(e, sys)

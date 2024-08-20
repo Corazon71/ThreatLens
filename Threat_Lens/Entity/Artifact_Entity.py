@@ -2,7 +2,8 @@ from dataclasses import dataclass
 
 @dataclass
 class TLDataIngestArtifact:
-  pass
+  TrainFPath : str
+  TestFPath : str
 
 @dataclass
 class TLDataValidArtifact:

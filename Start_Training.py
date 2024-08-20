@@ -7,6 +7,7 @@ from Threat_Lens.Pipeline.Training_Pipeline import TLTrainingPipeline
 
 def start_training():
   try:
+    logging.info("Initialized Training . . .")
     TLTP = TLTrainingPipeline()
     TLTP.Run_Pipeline()
   except Exception as e:

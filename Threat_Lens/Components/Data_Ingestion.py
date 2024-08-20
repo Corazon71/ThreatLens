@@ -18,15 +18,15 @@ from Threat_Lens.Entity.Artifact_Entity import TLDataIngestArtifact
 MONGODB_URL = os.getenv("MONGODB_URL")
 
 class TLDataIngest:
-  def __init__(self, DataIngestConfig : TLDataIngestConfig):
-    self.DataIngestConfig = DataIngestConfig
+  def __init__(self, DIConfig : TLDataIngestConfig):
+    self.DataIngestConfig = DIConfig
 
   def export_Collection_as_DF(self):
     try:
-      DatabaseName = self.DataIngestConfig.DatabaseName
-      CollectionName = self.DataIngestConfig.DatabaseName
+      DatabaseName = self.DataIngestConfig.DBName
+      CollectionName = self.DataIngestConfig.CllctnName
 
-      self.MongoClient = pymongo.mongo_client(MONGODB_URL)
+      self.MongoClient = pymongo.MongoClient(MONGODB_URL)
       Collection = self.MongoClient[DatabaseName][CollectionName]
 
       DF = pd.DataFrame(list(Collection.find()))
@@ -73,8 +73,8 @@ class TLDataIngest:
       self.split_in_Train_Test(DF)
 
       DataIngestArtifact = TLDataIngestArtifact(
-        TrainPath = self.DataIngestConfig.TrainPath, 
-        TestPath = self.DataIngestConfig.TestPath
+        TrainFPath = self.DataIngestConfig.TrainPath, 
+        TestFPath = self.DataIngestConfig.TestPath
       )
 
       return DataIngestArtifact
