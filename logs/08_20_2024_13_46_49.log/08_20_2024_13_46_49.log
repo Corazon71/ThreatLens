@@ -1,0 +1,6 @@
+[ 2024-08-20 13:46:51,219 ] 10 root - INFO - Initialized Training . . .
+[ 2024-08-20 13:46:51,220 ] 40 root - INFO - Initiating Data Ingestion
+[ 2024-08-20 13:46:55,237 ] 56 root - INFO - Data is split into Train & Test.
+[ 2024-08-20 13:46:55,238 ] 60 root - INFO - Exporting Train & Test file path.
+[ 2024-08-20 13:46:55,281 ] 64 root - INFO - Exported Train & Test file path.
+[ 2024-08-20 13:46:55,282 ] 43 root - INFO - Data Ingestion Completed Successfully - TLDataIngestArtifact(TrainFPath='Artifacts\\08_20_2024_13_46_51\\Data_Ingestion\\Ingested\\Train.csv', TestFPath='Artifacts\\08_20_2024_13_46_51\\Data_Ingestion\\Ingested\\Test.csv')
