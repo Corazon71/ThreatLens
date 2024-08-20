@@ -27,6 +27,7 @@ class DataUpload():
       Data = pd.read_csv(path)
       Data.reset_index(drop = True, inplace = True)
       Records = list(json.loads(Data.T.to_json()).values())
+
       return Records
     except Exception as e:
       raise TLException(e, sys)
@@ -41,6 +42,7 @@ class DataUpload():
       self.database = self.mongo_client[self.database]
       self.collection = self.database[self.collection]
       self.collection.insert_many(self.records)
+      
       return len(self.records)
     except Exception as e:
       raise TLException(e, sys)
