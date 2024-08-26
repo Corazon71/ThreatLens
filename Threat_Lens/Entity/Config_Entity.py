@@ -41,8 +41,11 @@ class TLDataValidConfig:
     )
     
 class TLDataTransformConfig:
-  def __init__(self):
-    pass
+  def __init__(self, TPConfig : TLTrainingPipelineConfig):
+    self.DataTransformDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.DATA_TRANSFORMATION_DIR_NAME)
+    self.TrnsfTrainPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR_NAME, Training_Pipeline.TRAIN_FILE_NAME.replace("csv", "npy"))
+    self.TrnsfTestPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR_NAME, Training_Pipeline.TEST_FILE_NAME.replace("csv", "npy"))
+    self.TrnsfObjPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR)
 
 class TLModelTrainConfig:
   def __init__(self):

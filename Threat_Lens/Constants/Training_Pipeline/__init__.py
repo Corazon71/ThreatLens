@@ -27,12 +27,22 @@ DATA_INGESTION_INGESTED_DIR_NAME : str = "Ingested"
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO : float = 0.2
 
 # Data Validation Constants
-DATA_VALIDATION_DIR_NAME : str = "DataValidation"
+DATA_VALIDATION_DIR_NAME : str = "Data_Validation"
 DATA_VALIDATION_VALID_DIR : str = "ValidData"
 DATA_VALIDATION_INVALID_DIR : str = "InvalidData"
 DATA_VALIDATION_DRIFT_REPORT_DIR : str = "DriftReport"
 DATA_VALIDATION_DRIFT_REPORT_NAME : str = "Report.yaml"
 
 # Data Transformation Constants
+DATA_TRANSFORMATION_DIR_NAME : str = "Data_Transformation"
+DATA_TRANSFORMATION_TRANSFORMED_DIR_NAME : str = "Transformed"
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR : str = "Transformed_Object"
+DATA_TRANSFORMATION_IMPUTER_PARAMS : dict = {
+  "missing_values" : np.nan,
+  "n_neighbors" : 3,
+  "weights" : "uniform"
+}
+DATA_TRANSFORMATION_TRAIN_FILEPATH : str = "Train.npy"
+DATA_TRANSFORMATION_TEST_FILEPATH : str = "Test.npy"
 
 # Model Training Constants

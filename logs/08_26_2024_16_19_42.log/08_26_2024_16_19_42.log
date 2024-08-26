@@ -1,0 +1,21 @@
+[ 2024-08-26 16:19:51,842 ] 10 root - INFO - Initialized Training . . .
+[ 2024-08-26 16:19:51,843 ] 40 root - INFO - Initiating Data Ingestion
+[ 2024-08-26 16:19:55,071 ] 56 root - INFO - Data is split into Train & Test.
+[ 2024-08-26 16:19:55,072 ] 60 root - INFO - Exporting Train & Test file path.
+[ 2024-08-26 16:19:55,115 ] 64 root - INFO - Exported Train & Test file path.
+[ 2024-08-26 16:19:55,116 ] 43 root - INFO - Data Ingestion Completed Successfully - TLDataIngestArtifact(TrainFPath='Artifacts\\08_26_2024_16_19_51\\Data_Ingestion\\Ingested\\Train.csv', TestFPath='Artifacts\\08_26_2024_16_19_51\\Data_Ingestion\\Ingested\\Test.csv')
+[ 2024-08-26 16:19:55,117 ] 52 root - INFO - Initiating Data Validation
+[ 2024-08-26 16:19:55,179 ] 34 root - INFO - Number of required columns : 31
+[ 2024-08-26 16:19:55,179 ] 35 root - INFO - Number of dataframe columns : 31
+[ 2024-08-26 16:19:55,180 ] 34 root - INFO - Number of required columns : 31
+[ 2024-08-26 16:19:55,180 ] 35 root - INFO - Number of dataframe columns : 31
+[ 2024-08-26 16:19:55,253 ] 55 root - INFO - Data Validation Completed Successfully - TLDataValidArtifact(ValStatus=True, ValTrainFPath='Artifacts\\08_26_2024_16_19_51\\Data_Ingestion\\Ingested\\Train.csv', ValTestFPath='Artifacts\\08_26_2024_16_19_51\\Data_Ingestion\\Ingested\\Test.csv', InvalTrainFPath=None, InvalTestFPath=None, DriftReportFPath='Artifacts\\08_26_2024_16_19_51\\Data_Validation\\DriftReport\\Report.yaml')
+[ 2024-08-26 16:19:55,254 ] 64 root - INFO - Initiating Data Transformation
+[ 2024-08-26 16:19:55,254 ] 48 root - INFO - Starting Data Transformation
+[ 2024-08-26 16:19:55,272 ] 35 root - INFO - Entering get_Transformer_Object method of TLDataTransform class
+[ 2024-08-26 16:19:55,272 ] 38 root - INFO - Initialized KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2024-08-26 16:19:55,272 ] 40 root - INFO - Exiting get_Transformer_Object method of TLDataTransform class
+[ 2024-08-26 16:19:55,272 ] 53 root - INFO - Got the Preprocessor Object
+[ 2024-08-26 16:19:55,285 ] 48 root - INFO - Entering the Save_object method of MainUtils class
+[ 2024-08-26 16:19:55,290 ] 52 root - INFO - Exiting the Save_object method of MainUtils class
+[ 2024-08-26 16:19:55,291 ] 67 root - INFO - Data Transformation Completed Successfully - TLDataTransformArtifact(TrnsfObjFPath='Artifacts\\08_26_2024_16_19_51\\Data_Transformation\\Transformed_Object', TrnsfTrainFPath='Artifacts\\08_26_2024_16_19_51\\Data_Transformation\\Transformed\\Train.npy', TrnsfTestFPath='Artifacts\\08_26_2024_16_19_51\\Data_Transformation\\Transformed\\Test.npy')

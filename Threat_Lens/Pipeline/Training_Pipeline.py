@@ -58,9 +58,15 @@ class TLTrainingPipeline():
     except Exception as e:
       raise TLException(e, sys)
   
-  def Start_Data_Transform(self):
+  def Start_Data_Transform(self, PreArtifact : TLDataValidArtifact):
     try:
-      pass
+      DTConfig = TLDataTransformConfig(TPConfig = self.TPConfig)
+      logging.info("Initiating Data Transformation")
+      DT = TLDataTransform(DTConfig = DTConfig, DVArtifact = PreArtifact)
+      DT_Artifact = DT.initiate_DataTransformation()
+      logging.info(f"Data Transformation Completed Successfully - {DT_Artifact}")
+
+      return DT_Artifact 
     except Exception as e:
       raise TLException(e, sys)
   
@@ -85,8 +91,10 @@ class TLTrainingPipeline():
   def Run_Pipeline(self):
     try:
       DI_Artifact = self.Start_Data_Ingest()
-      print(DI_Artifact)
+      # print(DI_Artifact)
       DV_Artifact = self.Start_Data_Valid(PreArtifact = DI_Artifact)
-      print(DV_Artifact)
+      # print(DV_Artifact)
+      DT_Artifact = self.Start_Data_Transform(PreArtifact = DV_Artifact)
+      # print(DT_Artifact)
     except Exception as e:
       raise TLException(e, sys)

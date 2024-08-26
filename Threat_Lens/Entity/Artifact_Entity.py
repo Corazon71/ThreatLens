@@ -16,7 +16,10 @@ class TLDataValidArtifact:
 
 @dataclass
 class TLDataTransformArtifact:
-  pass
+  TrnsfObjFPath : str
+  TrnsfTrainFPath : str
+  TrnsfTestFPath : str
+
 
 @dataclass
 class TLModelTrainArtifact:
