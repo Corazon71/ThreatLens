@@ -46,9 +46,15 @@ class TLTrainingPipeline():
     except Exception as e:
       raise TLException(e, sys)
   
-  def Start_Data_Valid(self):
+  def Start_Data_Valid(self, PreArtifact: TLDataIngestArtifact):
     try:
-      pass
+      DVConfig = TLDataValidConfig(TPConfig = self.TPConfig)
+      logging.info("Initiating Data Validation")
+      DV = TLDataValid(DVConfig = DVConfig, PreArtifact = PreArtifact)
+      DV_Artifact = DV.initiate_DataValidation()
+      logging.info(f"Data Validation Completed Successfully - {DV_Artifact}")
+
+      return DV_Artifact
     except Exception as e:
       raise TLException(e, sys)
   
@@ -80,5 +86,6 @@ class TLTrainingPipeline():
     try:
       DI_Artifact = self.Start_Data_Ingest()
       print(DI_Artifact)
+      DV_Artifact = self.Start_Data_Valid(PreArtifact = DI_Artifact)
     except Exception as e:
       raise TLException(e, sys)
