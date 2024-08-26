@@ -27,6 +27,11 @@ DATA_INGESTION_INGESTED_DIR_NAME : str = "Ingested"
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO : float = 0.2
 
 # Data Validation Constants
+DATA_VALIDATION_DIR_NAME : str = "DataValidation"
+DATA_VALIDATION_VALID_DIR : str = "ValidData"
+DATA_VALIDATION_INVALID_DIR : str = "InvalidData"
+DATA_VALIDATION_DRIFT_REPORT_DIR : str = "DriftReport"
+DATA_VALIDATION_DRIFT_REPORT_NAME : str = "Report.yaml"
 
 # Data Transformation Constants
 

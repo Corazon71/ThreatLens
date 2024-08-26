@@ -18,7 +18,7 @@ class TLTrainingPipelineConfig:
 class TLDataIngestConfig:
   def __init__(self, TPConfig : TLTrainingPipelineConfig):
     self.DataIngestDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.DATA_INGESTION_DIR_NAME)
-    self.FS_FilePath : str = os.path.join(self.DataIngestDir, Training_Pipeline.DATA_INGESTION_FEATURESTORE_DIR_NAME, Training_Pipeline.FILE_NAME)
+    self.FSFilePath : str = os.path.join(self.DataIngestDir, Training_Pipeline.DATA_INGESTION_FEATURESTORE_DIR_NAME, Training_Pipeline.FILE_NAME)
     self.TrainPath : str = os.path.join(self.DataIngestDir, Training_Pipeline.DATA_INGESTION_INGESTED_DIR_NAME, Training_Pipeline.TRAIN_FILE_NAME)
     self.TestPath : str = os.path.join(self.DataIngestDir, Training_Pipeline.DATA_INGESTION_INGESTED_DIR_NAME, Training_Pipeline.TEST_FILE_NAME)
     self.TTSRatio : float = Training_Pipeline.DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO
@@ -26,9 +26,20 @@ class TLDataIngestConfig:
     self.DBName : str = Training_Pipeline.DATA_INGESTION_DATABASE_NAME
 
 class TLDataValidConfig:
-  def __init__(self):
-    pass
-
+  def __init__(self, TPConfig : TLTrainingPipelineConfig):
+    self.DataValidDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.DATA_VALIDATION_DIR_NAME)
+    self.ValidDataDir : str = os.path.join(self.DataValidDir, Training_Pipeline.DATA_VALIDATION_VALID_DIR)
+    self.InvalidDataDir : str = os.path.join(self.DataValidDir, Training_Pipeline.DATA_VALIDATION_INVALID_DIR)
+    self.ValidTrainPath : str = os.path.join(self.ValidDataDir, Training_Pipeline.TRAIN_FILE_NAME)
+    self.ValidTestPath : str = os.path.join(self.ValidDataDir, Training_Pipeline.TEST_FILE_NAME)
+    self.InvalidTrainPath : str = os.path.join(self.InvalidDataDir, Training_Pipeline.TRAIN_FILE_NAME)
+    self.InvalidTestPath : str = os.path.join(self.InvalidDataDir, Training_Pipeline.TEST_FILE_NAME)
+    self.DRFilePath : str = os.path.join(
+      self.DataValidDir,
+      Training_Pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
+      Training_Pipeline.DATA_VALIDATION_DRIFT_REPORT_NAME,
+    )
+    
 class TLDataTransformConfig:
   def __init__(self):
     pass

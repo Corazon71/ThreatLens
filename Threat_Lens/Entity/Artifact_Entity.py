@@ -7,7 +7,12 @@ class TLDataIngestArtifact:
 
 @dataclass
 class TLDataValidArtifact:
-  pass
+  ValStatus : bool
+  ValTrainFPath : str
+  ValTestFPath : str
+  InvalTrainFPath : str
+  InvalTestFPath : str
+  DriftReportFPath : str
 
 @dataclass
 class TLDataTransformArtifact:
