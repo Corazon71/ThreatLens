@@ -50,7 +50,7 @@ class TLTrainingPipeline():
     try:
       DVConfig = TLDataValidConfig(TPConfig = self.TPConfig)
       logging.info("Initiating Data Validation")
-      DV = TLDataValid(DVConfig = DVConfig, PreArtifact = PreArtifact)
+      DV = TLDataValid(DVConfig = DVConfig, DIArtifact = PreArtifact)
       DV_Artifact = DV.initiate_DataValidation()
       logging.info(f"Data Validation Completed Successfully - {DV_Artifact}")
 
@@ -87,5 +87,6 @@ class TLTrainingPipeline():
       DI_Artifact = self.Start_Data_Ingest()
       print(DI_Artifact)
       DV_Artifact = self.Start_Data_Valid(PreArtifact = DI_Artifact)
+      print(DV_Artifact)
     except Exception as e:
       raise TLException(e, sys)

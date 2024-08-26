@@ -41,10 +41,10 @@ class TLDataIngest:
     
   def export_Data2FeatureStore(self, DF : pd.DataFrame):
     try:
-      FS_FilePath = self.DataIngestConfig.FS_FilePath
-      DIRPath = os.path.dirname(FS_FilePath)
+      FSFilePath = self.DataIngestConfig.FSFilePath
+      DIRPath = os.path.dirname(FSFilePath)
       os.makedirs(DIRPath, exist_ok = True)
-      DF.to_csv(FS_FilePath, index = False, header = True)
+      DF.to_csv(FSFilePath, index = False, header = True)
 
       return DF
     except Exception as e:
