@@ -45,7 +45,7 @@ class TLDataTransformConfig:
     self.DataTransformDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.DATA_TRANSFORMATION_DIR_NAME)
     self.TrnsfTrainPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR_NAME, Training_Pipeline.TRAIN_FILE_NAME.replace("csv", "npy"))
     self.TrnsfTestPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR_NAME, Training_Pipeline.TEST_FILE_NAME.replace("csv", "npy"))
-    self.TrnsfObjPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR)
+    self.TrnsfObjPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR, Training_Pipeline.PREPROCESSING_OBJ_FILE_NAME)
 
 class TLModelTrainConfig:
   def __init__(self):

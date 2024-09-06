@@ -1,0 +1,21 @@
+[ 2024-09-06 16:22:45,198 ] 10 root - INFO - Initialized Training . . .
+[ 2024-09-06 16:22:45,198 ] 40 root - INFO - Initiating Data Ingestion
+[ 2024-09-06 16:22:50,607 ] 56 root - INFO - Data is split into Train & Test.
+[ 2024-09-06 16:22:50,607 ] 60 root - INFO - Exporting Train & Test file path.
+[ 2024-09-06 16:22:50,652 ] 64 root - INFO - Exported Train & Test file path.
+[ 2024-09-06 16:22:50,653 ] 43 root - INFO - Data Ingestion Completed Successfully - TLDataIngestArtifact(TrainFPath='Artifacts\\09_06_2024_16_22_45\\Data_Ingestion\\Ingested\\Train.csv', TestFPath='Artifacts\\09_06_2024_16_22_45\\Data_Ingestion\\Ingested\\Test.csv')
+[ 2024-09-06 16:22:50,653 ] 52 root - INFO - Initiating Data Validation
+[ 2024-09-06 16:22:50,720 ] 34 root - INFO - Number of required columns : 31
+[ 2024-09-06 16:22:50,720 ] 35 root - INFO - Number of dataframe columns : 31
+[ 2024-09-06 16:22:50,721 ] 34 root - INFO - Number of required columns : 31
+[ 2024-09-06 16:22:50,721 ] 35 root - INFO - Number of dataframe columns : 31
+[ 2024-09-06 16:22:50,841 ] 55 root - INFO - Data Validation Completed Successfully - TLDataValidArtifact(ValStatus=False, ValTrainFPath='Artifacts\\09_06_2024_16_22_45\\Data_Ingestion\\Ingested\\Train.csv', ValTestFPath='Artifacts\\09_06_2024_16_22_45\\Data_Ingestion\\Ingested\\Test.csv', InvalTrainFPath=None, InvalTestFPath=None, DriftReportFPath='Artifacts\\09_06_2024_16_22_45\\Data_Validation\\DriftReport\\Report.yaml')
+[ 2024-09-06 16:22:50,841 ] 64 root - INFO - Initiating Data Transformation
+[ 2024-09-06 16:22:50,841 ] 48 root - INFO - Starting Data Transformation
+[ 2024-09-06 16:22:50,860 ] 35 root - INFO - Entering get_Transformer_Object method of TLDataTransform class
+[ 2024-09-06 16:22:50,860 ] 38 root - INFO - Initialized KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2024-09-06 16:22:50,860 ] 40 root - INFO - Exiting get_Transformer_Object method of TLDataTransform class
+[ 2024-09-06 16:22:50,860 ] 53 root - INFO - Got the Preprocessor Object
+[ 2024-09-06 16:22:50,874 ] 48 root - INFO - Entering the Save_object method of MainUtils class
+[ 2024-09-06 16:22:50,877 ] 52 root - INFO - Exiting the Save_object method of MainUtils class
+[ 2024-09-06 16:22:50,878 ] 67 root - INFO - Data Transformation Completed Successfully - TLDataTransformArtifact(TrnsfObjFPath='Artifacts\\09_06_2024_16_22_45\\Data_Transformation\\Transformed_Object\\Preprocessing.pkl', TrnsfTrainFPath='Artifacts\\09_06_2024_16_22_45\\Data_Transformation\\Transformed\\Train.npy', TrnsfTestFPath='Artifacts\\09_06_2024_16_22_45\\Data_Transformation\\Transformed\\Test.npy')
