@@ -70,9 +70,15 @@ class TLTrainingPipeline():
     except Exception as e:
       raise TLException(e, sys)
   
-  def Start_Model_Train(self):
+  def Start_Model_Train(self, PreArtifact : TLDataTransformArtifact) -> TLModelTrainArtifact:
     try:
-      pass
+      MTConfig = TLModelTrainConfig(TPConfig = self.TPConfig)
+      logging.info("Initiating Model Training")
+      MT = TLModelTrain(MTConfig = MTConfig, DTArtifact = PreArtifact)
+      MT_Artifact = MT.initiate_ModelTransformation()      
+      logging.info(f"Model Training Completed Successfully - {MT_Artifact}")
+
+      return MT_Artifact
     except Exception as e:
       raise TLException(e, sys)
  
@@ -96,5 +102,6 @@ class TLTrainingPipeline():
       # print(DV_Artifact)
       DT_Artifact = self.Start_Data_Transform(PreArtifact = DV_Artifact)
       # print(DT_Artifact)
+      MT_Artifact = self.Start_Model_Train(PreArtifact = DT_Artifact)
     except Exception as e:
       raise TLException(e, sys)

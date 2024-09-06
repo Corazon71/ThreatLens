@@ -23,7 +23,9 @@ class TLDataTransformArtifact:
 
 @dataclass
 class TLModelTrainArtifact:
-  pass
+  TrainedModelFPath : str
+  TrainMetricArtifact : ClassificationArtifact
+  TestMetricArtifact : ClassificationArtifact
 
 @dataclass
 class TLModelEvalArtifact:

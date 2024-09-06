@@ -48,8 +48,11 @@ class TLDataTransformConfig:
     self.TrnsfObjPath : str = os.path.join(self.DataTransformDir, Training_Pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR, Training_Pipeline.PREPROCESSING_OBJ_FILE_NAME)
 
 class TLModelTrainConfig:
-  def __init__(self):
-    pass
+  def __init__(self, TPConfig : TLTrainingPipelineConfig):
+    self.ModelTrainDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.MODEL_TRAINER_DIR_NAME)
+    self.TrainedModelPath : str = os.path.join(self.ModelTrainDir, Training_Pipeline.MODEL_TRAINER_TRAINED_DIR_NAME, Training_Pipeline.MODEL_FILE_NAME)
+    self.ExpctedAcc : float = Training_Pipeline.MODEL_TRAINER_EXPECTED_SCORE
+    self.OvrftUndrftThre : float = Training_Pipeline.MODEL_TRAINER_OVERFITTING_UNDERFITTING_THRESHOLD
 
 class TLModelEvalConfig:
   def __init__(self):

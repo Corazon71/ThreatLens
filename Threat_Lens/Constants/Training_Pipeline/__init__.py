@@ -46,3 +46,10 @@ DATA_TRANSFORMATION_TRAIN_FILEPATH : str = "Train.npy"
 DATA_TRANSFORMATION_TEST_FILEPATH : str = "Test.npy"
 
 # Model Training Constants
+MODEL_TRAINER_DIR_NAME : str = "Model_Trainer"
+MODEL_TRAINER_TRAINED_DIR_NAME : str = "Trained_Model"
+MODEL_TRAINER_TRAINED_MODEL_NAME : str = "Model.pkl"
+MODEL_TRAINER_EXPECTED_SCORE : float = 0.6
+MODEL_TRAINER_OVERFITTING_UNDERFITTING_THRESHOLD : float = 0.05
+
+# Model Evaluation Constant
