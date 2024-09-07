@@ -75,7 +75,7 @@ class TLTrainingPipeline():
       MTConfig = TLModelTrainConfig(TPConfig = self.TPConfig)
       logging.info("Initiating Model Training")
       MT = TLModelTrain(MTConfig = MTConfig, DTArtifact = PreArtifact)
-      MT_Artifact = MT.initiate_ModelTransformation()      
+      MT_Artifact = MT.initiate_ModelTrainer()      
       logging.info(f"Model Training Completed Successfully - {MT_Artifact}")
 
       return MT_Artifact

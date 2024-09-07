@@ -1,0 +1,26 @@
+[ 2024-09-07 09:12:05,315 ] 10 root - INFO - Initialized Training . . .
+[ 2024-09-07 09:12:05,315 ] 40 root - INFO - Initiating Data Ingestion
+[ 2024-09-07 09:12:08,910 ] 56 root - INFO - Data is split into Train & Test.
+[ 2024-09-07 09:12:08,911 ] 60 root - INFO - Exporting Train & Test file path.
+[ 2024-09-07 09:12:08,953 ] 64 root - INFO - Exported Train & Test file path.
+[ 2024-09-07 09:12:08,953 ] 43 root - INFO - Data Ingestion Completed Successfully - TLDataIngestArtifact(TrainFPath='Artifacts\\09_07_2024_09_12_04\\Data_Ingestion\\Ingested\\Train.csv', TestFPath='Artifacts\\09_07_2024_09_12_04\\Data_Ingestion\\Ingested\\Test.csv')
+[ 2024-09-07 09:12:08,954 ] 52 root - INFO - Initiating Data Validation
+[ 2024-09-07 09:12:09,042 ] 34 root - INFO - Number of required columns : 31
+[ 2024-09-07 09:12:09,042 ] 35 root - INFO - Number of dataframe columns : 31
+[ 2024-09-07 09:12:09,042 ] 34 root - INFO - Number of required columns : 31
+[ 2024-09-07 09:12:09,042 ] 35 root - INFO - Number of dataframe columns : 31
+[ 2024-09-07 09:12:09,129 ] 55 root - INFO - Data Validation Completed Successfully - TLDataValidArtifact(ValStatus=False, ValTrainFPath='Artifacts\\09_07_2024_09_12_04\\Data_Ingestion\\Ingested\\Train.csv', ValTestFPath='Artifacts\\09_07_2024_09_12_04\\Data_Ingestion\\Ingested\\Test.csv', InvalTrainFPath=None, InvalTestFPath=None, DriftReportFPath='Artifacts\\09_07_2024_09_12_04\\Data_Validation\\DriftReport\\Report.yaml')
+[ 2024-09-07 09:12:09,130 ] 64 root - INFO - Initiating Data Transformation
+[ 2024-09-07 09:12:09,130 ] 48 root - INFO - Starting Data Transformation
+[ 2024-09-07 09:12:09,149 ] 35 root - INFO - Entering get_Transformer_Object method of TLDataTransform class
+[ 2024-09-07 09:12:09,149 ] 38 root - INFO - Initialized KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2024-09-07 09:12:09,149 ] 40 root - INFO - Exiting get_Transformer_Object method of TLDataTransform class
+[ 2024-09-07 09:12:09,149 ] 53 root - INFO - Got the Preprocessor Object
+[ 2024-09-07 09:12:09,161 ] 48 root - INFO - Entering the Save_object method of MainUtils class
+[ 2024-09-07 09:12:09,165 ] 52 root - INFO - Exiting the Save_object method of MainUtils class
+[ 2024-09-07 09:12:09,166 ] 67 root - INFO - Data Transformation Completed Successfully - TLDataTransformArtifact(TrnsfObjFPath='Artifacts\\09_07_2024_09_12_04\\Data_Transformation\\Transformed_Object\\Preprocessing.pkl', TrnsfTrainFPath='Artifacts\\09_07_2024_09_12_04\\Data_Transformation\\Transformed\\Train.npy', TrnsfTestFPath='Artifacts\\09_07_2024_09_12_04\\Data_Transformation\\Transformed\\Test.npy')
+[ 2024-09-07 09:12:09,166 ] 76 root - INFO - Initiating Model Training
+[ 2024-09-07 09:12:09,323 ] 48 root - INFO - Entering the Save_object method of MainUtils class
+[ 2024-09-07 09:12:09,329 ] 52 root - INFO - Exiting the Save_object method of MainUtils class
+[ 2024-09-07 09:12:09,329 ] 77 root - INFO - Model Trainer Artifact : TLModelTrainArtifact(TrainedModelFPath='Artifacts\\09_07_2024_09_12_04\\Model_Trainer\\Trained_Model\\Model.pkl', TrainMetricArtifact=TLClassificationMetricArtifact(F1_Scr=np.float64(0.9874264854998986), Precision_Scr=np.float64(0.9848300970873787), Recall_Scr=np.float64(0.9900366002440016)), TestMetricArtifact=TLClassificationMetricArtifact(F1_Scr=np.float64(0.973621103117506), Precision_Scr=np.float64(0.9643705463182898), Recall_Scr=np.float64(0.9830508474576272)))
+[ 2024-09-07 09:12:09,330 ] 79 root - INFO - Model Training Completed Successfully - TLModelTrainArtifact(TrainedModelFPath='Artifacts\\09_07_2024_09_12_04\\Model_Trainer\\Trained_Model\\Model.pkl', TrainMetricArtifact=TLClassificationMetricArtifact(F1_Scr=np.float64(0.9874264854998986), Precision_Scr=np.float64(0.9848300970873787), Recall_Scr=np.float64(0.9900366002440016)), TestMetricArtifact=TLClassificationMetricArtifact(F1_Scr=np.float64(0.973621103117506), Precision_Scr=np.float64(0.9643705463182898), Recall_Scr=np.float64(0.9830508474576272)))

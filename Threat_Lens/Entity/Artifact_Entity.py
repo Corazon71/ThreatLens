@@ -20,12 +20,18 @@ class TLDataTransformArtifact:
   TrnsfTrainFPath : str
   TrnsfTestFPath : str
 
+@dataclass
+class TLClassificationMetricArtifact:
+  F1_Scr : float
+  Precision_Scr : float
+  Recall_Scr : float
+  pass
 
 @dataclass
 class TLModelTrainArtifact:
   TrainedModelFPath : str
-  TrainMetricArtifact : ClassificationArtifact
-  TestMetricArtifact : ClassificationArtifact
+  TrainMetricArtifact : TLClassificationMetricArtifact
+  TestMetricArtifact : TLClassificationMetricArtifact
 
 @dataclass
 class TLModelEvalArtifact:
@@ -33,7 +39,4 @@ class TLModelEvalArtifact:
 
 @dataclass
 class TLModelPushArtifact:
-  pass
-@dataclass
-class TLClassficationMetricArtifact:
   pass
