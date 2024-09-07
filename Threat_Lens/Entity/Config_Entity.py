@@ -55,8 +55,10 @@ class TLModelTrainConfig:
     self.OvrftUndrftThre : float = Training_Pipeline.MODEL_TRAINER_OVERFITTING_UNDERFITTING_THRESHOLD
 
 class TLModelEvalConfig:
-  def __init__(self):
-    pass
+  def __init__(self, TPConfig : TLTrainingPipelineConfig):
+    self.ModelEvalDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.MODEL_EVALUATION_DIR_NAME)
+    self.ReportPath : str = os.path.join(self.ModelEvalDir, Training_Pipeline.MODEL_EVALUATION_REPORT_NAME)
+    self.Thre : float = Training_Pipeline.MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
 
 class TLModelPushConfig:
   def __init__(self):

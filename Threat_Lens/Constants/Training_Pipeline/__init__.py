@@ -52,4 +52,9 @@ MODEL_TRAINER_TRAINED_MODEL_NAME : str = "Model.pkl"
 MODEL_TRAINER_EXPECTED_SCORE : float = 0.6
 MODEL_TRAINER_OVERFITTING_UNDERFITTING_THRESHOLD : float = 0.05
 
-# Model Evaluation Constant
+# Model Evaluation Constants
+MODEL_EVALUATION_DIR_NAME : str = "Model_Evaluation"
+MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE : float = 0.02
+MODEL_EVALUATION_REPORT_NAME : str = "report.yaml"
+
+# Model Pusher Constants

@@ -35,7 +35,12 @@ class TLModelTrainArtifact:
 
 @dataclass
 class TLModelEvalArtifact:
-  pass
+  IsModelAccpt : bool
+  ImprovedAcc : float
+  BestModelPath : str
+  TrainedModelPath : str
+  TrainModelMetricArtifact : TLClassificationMetricArtifact
+  BestModelMetricArtifact : TLClassificationMetricArtifact
 
 @dataclass
 class TLModelPushArtifact:
