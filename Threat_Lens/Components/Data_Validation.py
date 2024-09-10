@@ -97,7 +97,12 @@ class TLDataValid:
         ErrMsg = f"{ErrMsg}Test dataframe does not contain all columns.\n"
       
       Status = self.detect_Data_Drift(BaseDF = TrDF, CurrentDF = TsDF)
-      
+
+      DirPath = os.path.dirname(self.DataValidConfig.ValidTrainPath)
+      os.makedirs(DirPath, exist_ok = True)
+      TrDF.to_csv(self.DataValidConfig.ValidTrainPath, index = False, header = True)
+      TsDF.to_csv(self.DataValidConfig.ValidTestPath, index = False, header = True)     
+       
       DataValidArtifact = TLDataValidArtifact(
         ValStatus = Status,
         ValTrainFPath = self.DataIngestArtifact.TrainFPath,
