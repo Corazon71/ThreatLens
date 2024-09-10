@@ -44,4 +44,5 @@ class TLModelEvalArtifact:
 
 @dataclass
 class TLModelPushArtifact:
-  pass
+  SavedModelPath : str
+  ModelFilePath : str

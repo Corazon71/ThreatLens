@@ -94,9 +94,15 @@ class TLTrainingPipeline():
     except Exception as e:
       raise TLException(e, sys)
   
-  def Start_Model_Push(self):
+  def Start_Model_Push(self, PreArtifact : TLModelEvalArtifact) -> TLModelPushArtifact:
     try:
-      pass
+      MPConfig = TLModelPushConfig(TPConfig = self.TPConfig)
+      logging.info("Initiated Model Pusher")
+      MP = TLModelPush(MPConfig = MPConfig, MEArtifact = PreArtifact)
+      MP_Artifact = MP.initiate_ModelPusher()
+      logging.info(f"Model Pushing Completed Successfully - {MP_Artifact}")
+
+      return MP_Artifact
     except Exception as e:
       raise TLException(e, sys)
    
@@ -111,5 +117,8 @@ class TLTrainingPipeline():
       MT_Artifact = self.Start_Model_Train(PreArtifact = DT_Artifact)
       # print(MT_Artifact)
       ME_Artifact = self.Start_Model_Eval(PreArtifact = MT_Artifact, ValArtifact = DV_Artifact)
+      # print(ME_Artifact)
+      MP_Artifact = self.Start_Model_Push(PreArtifact = ME_Artifact)
+      print(ME_Artifact)
     except Exception as e:
       raise TLException(e, sys)

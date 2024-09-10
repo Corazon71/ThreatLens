@@ -61,5 +61,8 @@ class TLModelEvalConfig:
     self.Thre : float = Training_Pipeline.MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
 
 class TLModelPushConfig:
-  def __init__(self):
-    pass
+  def __init__(self, TPConfig : TLTrainingPipelineConfig):
+    self.ModelPushDir : str = os.path.join(TPConfig.ArtifactDir, Training_Pipeline.MODEL_PUSHER_DIR_NAME)
+    self.ModelFilePath : str = os.path.join(self.ModelPushDir, Training_Pipeline.MODEL_FILE_NAME)
+    timestamp = round(datetime.now().timestamp())
+    self.SavedModelPath = os.path.join(Training_Pipeline.SAVED_MODEL_DIR, f"{timestamp}", Training_Pipeline.MODEL_FILE_NAME)
