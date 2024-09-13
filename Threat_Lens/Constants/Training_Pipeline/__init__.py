@@ -60,3 +60,7 @@ MODEL_EVALUATION_REPORT_NAME : str = "report.yaml"
 # Model Pusher Constants
 MODEL_PUSHER_DIR_NAME : str = "Model Pusher"
 MODEL_PUSHER_SAVED_MODEL_DIR = SAVED_MODEL_DIR
+
+# AWS Constants
+TRAINING_BUCKET_NAME = "threatlenstr"
+PREDICTION_BUCKET_NAME = "threatlenspred"

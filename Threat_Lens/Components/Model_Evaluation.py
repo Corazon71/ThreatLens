@@ -35,7 +35,7 @@ class TLModelEval:
       DF = pd.concat([TrDF, TsDF])
       yTru = DF[TARGET_COLUMN]
       yTru.replace(-1, 0, inplace = True)
-
+      DF.drop(TARGET_COLUMN, axis = 1, inplace = True)
       TrnModelFPath = self.ModelTrainArtifact.TrainedModelFPath
 
       ModelRslvr = ModelResolver()

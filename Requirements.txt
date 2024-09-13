@@ -8,5 +8,7 @@ scikit-learn
 dill
 pyyaml
 xgboost
+fastapi
+uvicorn
 
 -e .

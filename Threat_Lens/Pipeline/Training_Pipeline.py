@@ -4,6 +4,9 @@ import sys
 from Threat_Lens.Exception.Exception import TLException
 from Threat_Lens.Logger.Logger import logging
 
+from Threat_Lens.Cloud.S3Syncer import S3Sync
+from Threat_Lens.Constants.Training_Pipeline import TRAINING_BUCKET_NAME, SAVED_MODEL_DIR
+
 from Threat_Lens.Components.Data_Ingestion import TLDataIngest
 from Threat_Lens.Components.Data_Transformation import TLDataTransform
 from Threat_Lens.Components.Data_Validation import TLDataValid
@@ -31,8 +34,10 @@ from Threat_Lens.Entity.Artifact_Entity import (
 )
 
 class TLTrainingPipeline():
+  IS_PL_Rnng = False
   def __init__(self):
     self.TPConfig = TLTrainingPipelineConfig()
+    self.S3Sync = S3Sync()
 
   def Start_Data_Ingest(self):
     try:
@@ -105,9 +110,25 @@ class TLTrainingPipeline():
       return MP_Artifact
     except Exception as e:
       raise TLException(e, sys)
+    
+  def Sync_ArtifactDir_to_S3(self):
+    try:
+      URL = f"s3://{TRAINING_BUCKET_NAME}/Artifact/{self.TPConfig.TimeStamp}"
+      self.S3Sync.Sync_Fldr_2_S3(Fldr = self.TPConfig.ArtifactDir, AWS_Bucket_URL = URL)
+    except Exception as e:
+      raise TLException(e, sys)
+    
+  def Sync_SavedModelDir_to_S3(self):
+    try:
+      URL = f"s3://{TRAINING_BUCKET_NAME}/{SAVED_MODEL_DIR}"
+      self.S3Sync.Sync_Fldr_2_S3(Fldr = SAVED_MODEL_DIR, AWS_Bucket_URL = URL)
+    except Exception as e:
+      raise TLException(e, sys)
+      
    
   def Run_Pipeline(self):
     try:
+      TLTrainingPipeline.IS_PL_Rnng = True
       DI_Artifact = self.Start_Data_Ingest()
       # print(DI_Artifact)
       DV_Artifact = self.Start_Data_Valid(PreArtifact = DI_Artifact)
@@ -119,6 +140,11 @@ class TLTrainingPipeline():
       ME_Artifact = self.Start_Model_Eval(PreArtifact = MT_Artifact, ValArtifact = DV_Artifact)
       # print(ME_Artifact)
       MP_Artifact = self.Start_Model_Push(PreArtifact = ME_Artifact)
-      print(ME_Artifact)
+      # print(MP_Artifact)
+      TLTrainingPipeline.IS_PL_Rnng = False
+      self.Sync_ArtifactDir_to_S3()
+      self.Sync_SavedModelDir_to_S3()
     except Exception as e:
+      self.Sync_ArtifactDir_to_S3()
+      TLTrainingPipeline.IS_PL_Rnng = False
       raise TLException(e, sys)
