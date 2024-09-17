@@ -10,5 +10,8 @@ pyyaml
 xgboost
 fastapi
 uvicorn
+Jinja2
+python-multipart
+apache-airflow
 
 -e .
