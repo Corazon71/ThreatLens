@@ -80,11 +80,14 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Clean docker
+      - name: Pull latest images
         run: |
-          docker stop $(docker ps -q)
-          docker rm $(docker ps -aq)
-          docker rmi $(docker images -q)
-          docker volume rm $(docker volume ls -q)
-          docker network rm $(docker network ls -q)
-          docker system prune -a --volumes
+          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}:Latest
+
+      - name: Run Docker Image to serve users
+        run: |
+          docker run -d -p 80:8080 --name=ThreatLens -e 'MONGO_DB_URL=${{ secrets.MONGO_DB_URL }}' -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEYID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}' ${{secrets.AWS_ECR_LOGIN_URI}}:Latest
+
+      - name: Clean previous images and containers
+        run: |
+          docker system prune -f
